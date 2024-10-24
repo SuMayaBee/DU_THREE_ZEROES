@@ -40,7 +40,7 @@ async function createStripeProducts() {
 }
 
 async function seed() {
-  const email = 'test@test.com';
+  const email = 'test1@test.com';
   const password = 'admin123';
   const passwordHash = await hashPassword(password);
 

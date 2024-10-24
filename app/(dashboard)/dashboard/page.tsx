@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation';
 import { Settings } from './settings';
 import { getTeamForUser, getUser } from '@/lib/db/queries';
+import SearchBox from '../search-box';
+import OpenCageGeocoding from '../lat_long';
 
 export default async function SettingsPage() {
   const user = await getUser();
@@ -15,5 +17,8 @@ export default async function SettingsPage() {
     throw new Error('Team not found');
   }
 
-  return <Settings teamData={teamData} />;
+
+  return <SearchBox />
+  // return <Settings teamData={teamData} />;
+ // return <OpenCageGeocoding />
 }

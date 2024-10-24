@@ -3,6 +3,7 @@ import { Settings } from './settings';
 import { getTeamForUser, getUser } from '@/lib/db/queries';
 import SearchBox from '../search-box';
 import OpenCageGeocoding from '../lat_long';
+import FlightSearch from '../flightSearch';
 
 export default async function SettingsPage() {
   const user = await getUser();
@@ -18,7 +19,8 @@ export default async function SettingsPage() {
   }
 
 
-  return <SearchBox />
+  //return <SearchBox />
   // return <Settings teamData={teamData} />;
  // return <OpenCageGeocoding />
+ return <FlightSearch />
 }

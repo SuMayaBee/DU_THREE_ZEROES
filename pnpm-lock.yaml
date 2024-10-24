@@ -74,18 +74,24 @@ importers:
       drizzle-orm:
         specifier: ^0.33.0
         version: 0.33.0(postgres@3.4.4)(react@19.0.0-rc-cd22717c-20241013)(types-react@19.0.0-rc.1)
+      gsap:
+        specifier: ^3.12.5
+        version: 3.12.5
       jose:
         specifier: ^5.9.2
         version: 5.9.2
       leaflet:
         specifier: ^1.9.4
         version: 1.9.4
+      lodash.debounce:
+        specifier: ^4.0.8
+        version: 4.0.8
       lucide-react:
         specifier: ^0.441.0
         version: 0.441.0(react@19.0.0-rc-cd22717c-20241013)
       next:
-        specifier: 15.0.0-canary.190
-        version: 15.0.0-canary.190(@babel/core@7.25.9)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+        specifier: 15.0.2-canary.3
+        version: 15.0.2-canary.3(@babel/core@7.25.9)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
       postcss:
         specifier: ^8.4.47
         version: 8.4.47
@@ -102,8 +108,11 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0(react@19.0.0-rc-cd22717c-20241013)
       react-leaflet:
-        specifier: ^4.2.1
-        version: 4.2.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+        specifier: 5.0.0-rc.1
+        version: 5.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+      react-leaflet-markercluster:
+        specifier: 3.0.0-rc1
+        version: 3.0.0-rc1(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react-leaflet@5.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
       react-slick:
         specifier: ^0.30.2
         version: 0.30.2(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
@@ -1200,53 +1209,53 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@next/env@15.0.0-canary.190':
-    resolution: {integrity: sha512-Is+EpejFEglwIAaBBwOnDJ9DkikC/c1zuu6vD7mdz0YJUoiwSgkBd6pM9sTwxKbU4eXtxxKU4Cg6V0zMTi6ErA==}
+  '@next/env@15.0.2-canary.3':
+    resolution: {integrity: sha512-LNyrBwE5UEGi9kfaDbBY7XEHLKo1pbaum62mWPVmuH6SWvDjBjker09MPkU7uIItKudaGOK5BOVG//txC1tUJQ==}
 
-  '@next/swc-darwin-arm64@15.0.0-canary.190':
-    resolution: {integrity: sha512-UICzn+5kzs6AsEKBeOocSvysoWpDFUC2XrI8FjTrns8peF3VMZsPxFF2NFN4a3KhkCJNOrB+9Gb51ybl0IJPAA==}
+  '@next/swc-darwin-arm64@15.0.2-canary.3':
+    resolution: {integrity: sha512-3JjZTANwYmTYGDfsMK4Ljl9z/AHANYDo1XAbUKWMcOrOfTFar3J5LwllYEppERt0Ba0UfUGEBaC2SeYM00pW0Q==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@next/swc-darwin-x64@15.0.0-canary.190':
-    resolution: {integrity: sha512-O5TJEW35Rg7wh6/cVS6EGNxyfcaC9Z2Pt843gF3/iX9TVzVr+7U5PuyPisi2oCpepy4gZP+6lK/m6G4tFDab+g==}
+  '@next/swc-darwin-x64@15.0.2-canary.3':
+    resolution: {integrity: sha512-wfbGuVaWyyCLiY60yGSc17Spu5pLc33aJFl2udX/UcE839MyfKJNxeVkfvtCVMT0cZtqaGGdWRmEe/SEeQDE9A==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@next/swc-linux-arm64-gnu@15.0.0-canary.190':
-    resolution: {integrity: sha512-Zx9+qak7uNHubUFX3jTMG1KTp/iedHXo3hmmvWBM7omRFh9v59oEs1xk+zH/HWqgjyeu6r8bjqYI6IG1r14uWA==}
+  '@next/swc-linux-arm64-gnu@15.0.2-canary.3':
+    resolution: {integrity: sha512-GG4Gddan8zd672IA4GgpsYU2YEJfA/3TRrKZW3S1mi78Vr5tj4I0RtNrpOhKtPEzl7N+zz8nkjoPhG/Pp/xKyg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-arm64-musl@15.0.0-canary.190':
-    resolution: {integrity: sha512-nG/XBqL9vmVQhmx8wyOjZkQXSR9TPdGc8mu0Npk0sFd0bM90RRYh7ubV2pEots2vZUmP0MHowBvVvv1U7imsIA==}
+  '@next/swc-linux-arm64-musl@15.0.2-canary.3':
+    resolution: {integrity: sha512-PnyraX08WCt+bjeGLA/IbHZ74Hy2P7nW4sYU9X3ARIRklCP6RkBnmmImvulmYvcAaz0gh5QzZNMLsPsjjhS4Eg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@next/swc-linux-x64-gnu@15.0.0-canary.190':
-    resolution: {integrity: sha512-/WEZ4o/+guH1FfslVGJcYLWZdZQOR3KV2pZeq10FG1IstLAsVg8UYyAEY10+LDiHwayUlXq4yr8ir05sPAeOLg==}
+  '@next/swc-linux-x64-gnu@15.0.2-canary.3':
+    resolution: {integrity: sha512-1xZnoKQl5RT5AsbQeYVMF23mv0E8/oATFSV85Gp1eHksY+nRgKAdGOX1sEYRJ0a7vPwkIGRgMheOd8o0C++VqA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-linux-x64-musl@15.0.0-canary.190':
-    resolution: {integrity: sha512-nGMCaxaymNf+tia+YCL4TlbAIcq96vaf8RxRkPhyCwBxskGXMdB2QOeW7v6sGk8fOXC8s2m1Smia4IfCe+Mzpw==}
+  '@next/swc-linux-x64-musl@15.0.2-canary.3':
+    resolution: {integrity: sha512-S8cme/nRrBs2yrZ6QiPzHo0SD6ewj9tWOMy81cXSbHUCKXEyEdHGM9fIdgHzDalvCQgvB5L5HVPS3yMzb9TOlw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@next/swc-win32-arm64-msvc@15.0.0-canary.190':
-    resolution: {integrity: sha512-Dw7ZYG09Qe9DZd2d+LvTGnV7XuibR+bYpnAQKtaxyLpEuk/0UvMLK8xaynlDFdfv/IIJyX5UPpWIxCWFZ4vPUw==}
+  '@next/swc-win32-arm64-msvc@15.0.2-canary.3':
+    resolution: {integrity: sha512-vUG48sYJzNuuPHb2Gv2kTkAK5Wo4V9eABJws6ndivaalQYoTQnGX32fITbR1o88I7q1XDFym/yLK3tb5M08upg==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@next/swc-win32-x64-msvc@15.0.0-canary.190':
-    resolution: {integrity: sha512-eTMQKe4U+vo6XCbGKeYkjvucryTVOTWHYqRrj1ryM8fxlF9L0IIJbWt9iiQ5QnJjdQFLd7w8UW71yB1oJXCSWQ==}
+  '@next/swc-win32-x64-msvc@15.0.2-canary.3':
+    resolution: {integrity: sha512-bd0Mem8bCNkGGEHxWYMykv3cCHaQUOJyIzOkfmTaaZlQuCAN9M9Ybktk0+1JAl6SeFfJw+iMm/wJ1aRf2whHTg==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
@@ -1606,12 +1615,26 @@ packages:
   '@radix-ui/rect@1.1.0':
     resolution: {integrity: sha512-A9+lCBZoaMJlVKcRBz2YByCG+Cp2t6nAnMnNba+XiWxnj6r4JUFqfsgwocMBZU9LPtdxC6wB56ySYpc7LQIoJg==}
 
+  '@react-leaflet/core@1.1.1':
+    resolution: {integrity: sha512-7PGLWa9MZ5x/cWy8EH2VzI4T8q5WpuHbixzCDXqixP/WyqwIrg5NDUPgYuFnB4IEIZF+6nA265mYzswFo/h1Pw==}
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+
   '@react-leaflet/core@2.1.0':
     resolution: {integrity: sha512-Qk7Pfu8BSarKGqILj4x7bCSZ1pjuAPZ+qmRwH5S7mDS91VSbVVsJSrW4qA+GPrro8t69gFYVMWb1Zc4yFmPiVg==}
     peerDependencies:
       leaflet: ^1.9.0
       react: ^18.0.0
       react-dom: ^18.0.0
+
+  '@react-leaflet/core@3.0.0-rc.1':
+    resolution: {integrity: sha512-1Z9Cc49G8vN7q5uRZjUbE4p+voddW1ARrYiPOGphlcsODhKhfJLQSBN7YNxi/+IQrN5qALPVQQLiovgZKT/kyQ==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: rc
+      react-dom: rc
 
   '@sindresorhus/is@0.14.0':
     resolution: {integrity: sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==}
@@ -3250,6 +3273,9 @@ packages:
   growly@1.3.0:
     resolution: {integrity: sha512-+xGQY0YyAWCnqy7Cd++hc2JqMYzlm0dG30Jd0beaA64sROr8C4nt8Yc9V5Ro3avlSUDTN0ulqP/VBKi1/lLygw==}
 
+  gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
 
@@ -3891,6 +3917,11 @@ packages:
     resolution: {integrity: sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==}
     engines: {node: '>=8'}
 
+  leaflet.markercluster@1.5.3:
+    resolution: {integrity: sha512-vPTw/Bndq7eQHjLBVlWpnGeLa3t+3zGiuM7fJwCkiMFq+nmRuG3RI3f7f4N4TDX7T4NpbAXpR2+NTRSEGfCSeA==}
+    peerDependencies:
+      leaflet: ^1.3.1
+
   leaflet@1.9.4:
     resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
 
@@ -4169,16 +4200,16 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  next@15.0.0-canary.190:
-    resolution: {integrity: sha512-x7dI2+orHKjnTUv7GmM1jFeZTQt4Dz6YQuZcUTogvJ1DX9Um0vOp4JU+m5uMeUc0fmCNOZotWbYXx8nWyQ4Xmw==}
+  next@15.0.2-canary.3:
+    resolution: {integrity: sha512-DJ61U0aC/ODZL3jnxrfd93UJlJXdHd58H3mhn+0Y1B4IsJWaVc4IKe1tAOtu4SSfVAuEACMR+aqw4sftuaO/8A==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
       '@playwright/test': ^1.41.2
       babel-plugin-react-compiler: '*'
-      react: ^18.2.0 || 19.0.0-rc-cd22717c-20241013
-      react-dom: ^18.2.0 || 19.0.0-rc-cd22717c-20241013
+      react: ^18.2.0 || 19.0.0-rc-1631855f-20241023
+      react-dom: ^18.2.0 || 19.0.0-rc-1631855f-20241023
       sass: ^1.3.0
     peerDependenciesMeta:
       '@opentelemetry/api':
@@ -4675,12 +4706,27 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  react-leaflet-markercluster@3.0.0-rc1:
+    resolution: {integrity: sha512-wr8ERtx73sY0uVoQAM1v1vsA5Vsbdgyqc88h+Eo2kYRwNdkVTEOoUTnAh3CgGuOyP0Y9QLd2dKGupGkufpwryQ==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    peerDependencies:
+      leaflet: ^1.6.0
+      leaflet.markercluster: ^1.4.1
+      react-leaflet: ^3.0.0
+
   react-leaflet@4.2.1:
     resolution: {integrity: sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q==}
     peerDependencies:
       leaflet: ^1.9.0
       react: ^18.0.0
       react-dom: ^18.0.0
+
+  react-leaflet@5.0.0-rc.1:
+    resolution: {integrity: sha512-pqxGH/rgUQAUuimnIt/6xLeNAcWymM/kxPpm6v1plXMNHd41Iy6i2sYbzsrRVmspXRT0HtuxQc7jWF+FRHyhYg==}
+    peerDependencies:
+      leaflet: ^1.9.0
+      react: rc
+      react-dom: rc
 
   react-remove-scroll-bar@2.3.6:
     resolution: {integrity: sha512-DtSYaao4mBmX+HDo5YWYdBWQwYIQQshUV/dVxFxK+KM26Wjwp1gZ6rv6OC3oujI6Bfu6Xyg3TwK533AQutsn/g==}
@@ -7033,30 +7079,30 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@next/env@15.0.0-canary.190': {}
+  '@next/env@15.0.2-canary.3': {}
 
-  '@next/swc-darwin-arm64@15.0.0-canary.190':
+  '@next/swc-darwin-arm64@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-darwin-x64@15.0.0-canary.190':
+  '@next/swc-darwin-x64@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-linux-arm64-gnu@15.0.0-canary.190':
+  '@next/swc-linux-arm64-gnu@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-linux-arm64-musl@15.0.0-canary.190':
+  '@next/swc-linux-arm64-musl@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-linux-x64-gnu@15.0.0-canary.190':
+  '@next/swc-linux-x64-gnu@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-linux-x64-musl@15.0.0-canary.190':
+  '@next/swc-linux-x64-musl@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-win32-arm64-msvc@15.0.0-canary.190':
+  '@next/swc-win32-arm64-msvc@15.0.2-canary.3':
     optional: true
 
-  '@next/swc-win32-x64-msvc@15.0.0-canary.190':
+  '@next/swc-win32-x64-msvc@15.0.2-canary.3':
     optional: true
 
   '@nodelib/fs.scandir@2.1.5':
@@ -7383,7 +7429,19 @@ snapshots:
 
   '@radix-ui/rect@1.1.0': {}
 
+  '@react-leaflet/core@1.1.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)':
+    dependencies:
+      leaflet: 1.9.4
+      react: 19.0.0-rc-cd22717c-20241013
+      react-dom: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)
+
   '@react-leaflet/core@2.1.0(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)':
+    dependencies:
+      leaflet: 1.9.4
+      react: 19.0.0-rc-cd22717c-20241013
+      react-dom: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)
+
+  '@react-leaflet/core@3.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)':
     dependencies:
       leaflet: 1.9.4
       react: 19.0.0-rc-cd22717c-20241013
@@ -9291,6 +9349,8 @@ snapshots:
   growly@1.3.0:
     optional: true
 
+  gsap@3.12.5: {}
+
   handle-thing@2.0.1: {}
 
   har-schema@2.0.0: {}
@@ -10142,6 +10202,10 @@ snapshots:
     dependencies:
       package-json: 6.5.0
 
+  leaflet.markercluster@1.5.3(leaflet@1.9.4):
+    dependencies:
+      leaflet: 1.9.4
+
   leaflet@1.9.4: {}
 
   leven@3.1.0: {}
@@ -10420,26 +10484,26 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next@15.0.0-canary.190(@babel/core@7.25.9)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013):
+  next@15.0.2-canary.3(@babel/core@7.25.9)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013):
     dependencies:
-      '@next/env': 15.0.0-canary.190
+      '@next/env': 15.0.2-canary.3
       '@swc/counter': 0.1.3
       '@swc/helpers': 0.5.13
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001660
+      caniuse-lite: 1.0.30001669
       postcss: 8.4.31
       react: 19.0.0-rc-cd22717c-20241013
       react-dom: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)
       styled-jsx: 5.1.6(@babel/core@7.25.9)(react@19.0.0-rc-cd22717c-20241013)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 15.0.0-canary.190
-      '@next/swc-darwin-x64': 15.0.0-canary.190
-      '@next/swc-linux-arm64-gnu': 15.0.0-canary.190
-      '@next/swc-linux-arm64-musl': 15.0.0-canary.190
-      '@next/swc-linux-x64-gnu': 15.0.0-canary.190
-      '@next/swc-linux-x64-musl': 15.0.0-canary.190
-      '@next/swc-win32-arm64-msvc': 15.0.0-canary.190
-      '@next/swc-win32-x64-msvc': 15.0.0-canary.190
+      '@next/swc-darwin-arm64': 15.0.2-canary.3
+      '@next/swc-darwin-x64': 15.0.2-canary.3
+      '@next/swc-linux-arm64-gnu': 15.0.2-canary.3
+      '@next/swc-linux-arm64-musl': 15.0.2-canary.3
+      '@next/swc-linux-x64-gnu': 15.0.2-canary.3
+      '@next/swc-linux-x64-musl': 15.0.2-canary.3
+      '@next/swc-win32-arm64-msvc': 15.0.2-canary.3
+      '@next/swc-win32-x64-msvc': 15.0.2-canary.3
       sharp: 0.33.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -10911,9 +10975,26 @@ snapshots:
 
   react-is@16.13.1: {}
 
+  react-leaflet-markercluster@3.0.0-rc1(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react-leaflet@5.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013):
+    dependencies:
+      '@react-leaflet/core': 1.1.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+      leaflet: 1.9.4
+      leaflet.markercluster: 1.5.3(leaflet@1.9.4)
+      react-leaflet: 5.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
   react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013):
     dependencies:
       '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
+      leaflet: 1.9.4
+      react: 19.0.0-rc-cd22717c-20241013
+      react-dom: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)
+
+  react-leaflet@5.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013):
+    dependencies:
+      '@react-leaflet/core': 3.0.0-rc.1(leaflet@1.9.4)(react-dom@19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013))(react@19.0.0-rc-cd22717c-20241013)
       leaflet: 1.9.4
       react: 19.0.0-rc-cd22717c-20241013
       react-dom: 19.0.0-rc-cd22717c-20241013(react@19.0.0-rc-cd22717c-20241013)

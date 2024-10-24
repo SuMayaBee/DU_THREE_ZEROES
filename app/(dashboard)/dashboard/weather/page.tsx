@@ -120,7 +120,7 @@ const WeatherForecastPage: React.FC = () => {
 
   return (
     <div className="container mx-auto mt-10 max-w-screen-md">
-      <h1 className="text-2xl font-bold text-center">5-Day Weather Forecast</h1>
+      <h1 className="text-2xl font-bold text-center font-kanit">Weather Outlook for Your Visit</h1>
 
       {/* Search Form */}
       <form onSubmit={handleSearch} className="flex flex-col mt-5 space-y-4 w-full">

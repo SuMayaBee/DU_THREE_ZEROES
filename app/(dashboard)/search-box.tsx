@@ -260,7 +260,7 @@ const HotelSearch: React.FC = () => {
           ))}
         </div>
       )}
-      {hotels && (
+      {!(hotels.length < 1) && (
         <div className=" mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 p-3">
           {/* Left side: Hotel Cards */}
           <div className="grid grid-cols-1 gap-3 max-h-[100vh] overflow-scroll">
@@ -288,7 +288,7 @@ const HotelSearch: React.FC = () => {
                
                   <p className="my-1 text-green-800 font-semibold">
                     <span>Grade:</span> ({hotel.review_score_word})</p>
-                <p className="text-gray-800 mt-1 text-red-500 font-semibold">
+                <p className=" mt-1 text-red-500 font-semibold">
                   Price: {hotel.min_total_price} {hotel.currencycode}
                 </p>
 

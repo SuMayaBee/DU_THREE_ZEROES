@@ -18,7 +18,7 @@ const FAQ: React.FC = () => {
 
   return (
     <section className="py-16 bg-white">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Frequently Asked Questions</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 font-kanit">Frequently Asked Questions</h2>
       <div className="max-w-4xl mx-auto space-y-4">
         {faqs.map((faq, index) => (
           <div key={index}>

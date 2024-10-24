@@ -88,7 +88,7 @@ const FlightSearch: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-bold text-center mb-4">Search Flights</h1>
+      <h1 className="text-4xl font-bold text-left mb-6 font-kanit">Search Flights</h1>
 
       <div className="grid grid-cols-7 gap-3 mb-4">
         <InputField

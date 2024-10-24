@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
@@ -15,23 +15,29 @@ export default function DashboardLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const navItems = [
-    { href: '/dashboard', icon: Users, label: 'Accomodation' },
+    { href: '/dashboard', icon: Users, label: 'Accommodation' },
     { href: '/dashboard/flight', icon: Settings, label: 'Flight' },
     { href: '/dashboard/weather', icon: Activity, label: 'Weather' },
     { href: '/dashboard/security', icon: Shield, label: 'Security' },
   ];
 
+  // Effect to close the sidebar when navigating to a new tab
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [pathname]);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   return (
-    <div className="flex flex-col min-h-[calc(100dvh-68px)]  mx-auto w-full">
+    <div className="flex flex-col min-h-[calc(100dvh-68px)] mx-auto w-full">
       {/* Mobile header */}
-      <div className="lg:hidden flex items-center justify-between bg-white border-b border-gray-200 p-4">
-        <div className="flex items-center">
-          <span className="font-medium">Settings</span>
-        </div>
+      <div className="flex items-center justify-between bg-white border-b border-gray-200 p-4">
         <Button
           className="-mr-3"
           variant="ghost"
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          onClick={toggleSidebar}
         >
           <Menu className="h-6 w-6" />
           <span className="sr-only">Toggle sidebar</span>
@@ -41,10 +47,8 @@ export default function DashboardLayout({
       <div className="flex flex-1 overflow-hidden h-full">
         {/* Sidebar */}
         <aside
-          className={`w-64 bg-white lg:bg-gray-50 border-r border-gray-200 lg:block ${
-            isSidebarOpen ? 'block' : 'hidden'
-          } lg:relative absolute inset-y-0 left-0 z-40 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
-            isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+          className={` bg-white border-r border-gray-200 transition-transform duration-300 ease-in-out ${
+            isSidebarOpen ? 'translate-x-0 w-64' : 'w-0 -translate-x-full'
           }`}
         >
           <nav className="h-full overflow-y-auto p-4">
@@ -55,7 +59,7 @@ export default function DashboardLayout({
                   className={`my-1 w-full justify-start ${
                     pathname === item.href ? 'bg-gray-100' : ''
                   }`}
-                  onClick={() => setIsSidebarOpen(false)}
+                  onClick={() => setIsSidebarOpen(false)} // Close sidebar on link click
                 >
                   <item.icon className="mr-2 h-4 w-4" />
                   {item.label}

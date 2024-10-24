@@ -1,28 +1,87 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { FaMapMarkedAlt, FaPlane, FaBook } from "react-icons/fa";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+// Register the ScrollTrigger plugin for GSAP
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const Features = () => {
+  const cardsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    // GSAP animation for card entry
+    gsap.from(cardsRef.current, {
+      opacity: 0,
+      y: 50,
+      stagger: 0.2,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: cardsRef.current[0],
+        start: "top 80%",
+        end: "bottom 20%",
+      },
+    });
+  }, []);
+
+  // GSAP hover effect function
+  const handleHover = (el: HTMLDivElement, reverse = false) => {
+    const tl = gsap.timeline({ paused: true });
+    tl.to(el, {
+      scale: 1.05, // Scale up on hover
+      rotate: 5, // Small rotation for a fun effect
+      boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)", // Shadow effect
+      backgroundColor: "#f0f0f0", // Change background on hover
+      duration: 0.5,
+      ease: "power2.out",
+    });
+
+    if (reverse) {
+      tl.reverse(); // Reverse the effect when the hover ends
+    } else {
+      tl.play(); // Play the hover animation
+    }
+  };
+
   return (
-    <StyledWrapper>
+    <StyledWrapper className="py-16">
       <h2 className="heading font-kanit">Our Travel Features</h2>
       <div className="cards">
-        <div className="card destinations">
+        <div
+          className="card destinations"
+          ref={(el) => (cardsRef.current[0] = el!)}
+          onMouseEnter={() => handleHover(cardsRef.current[0])}
+          onMouseLeave={() => handleHover(cardsRef.current[0], true)}
+        >
           <div className="icon-wrapper">
             <FaMapMarkedAlt className="icon" />
           </div>
           <p className="tip">Destinations</p>
           <p className="second-text">Explore the world</p>
         </div>
-        <div className="card guides">
+        <div
+          className="card guides"
+          ref={(el) => (cardsRef.current[1] = el!)}
+          onMouseEnter={() => handleHover(cardsRef.current[1])}
+          onMouseLeave={() => handleHover(cardsRef.current[1], true)}
+        >
           <div className="icon-wrapper">
             <FaBook className="icon" />
           </div>
           <p className="tip">Travel Guides</p>
           <p className="second-text">Plan your trip</p>
         </div>
-        <div className="card deals">
+        <div
+          className="card deals"
+          ref={(el) => (cardsRef.current[2] = el!)}
+          onMouseEnter={() => handleHover(cardsRef.current[2])}
+          onMouseLeave={() => handleHover(cardsRef.current[2], true)}
+        >
           <div className="icon-wrapper">
             <FaPlane className="icon" />
           </div>
@@ -36,7 +95,6 @@ const Features = () => {
 
 const StyledWrapper = styled.div`
   text-align: center;
-  padding: 20px;
 
   /* Header Styling */
   .heading {
@@ -65,10 +123,10 @@ const StyledWrapper = styled.div`
     align-items: center;
     justify-content: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   /* Icon wrapper with a circular background */
@@ -103,12 +161,6 @@ const StyledWrapper = styled.div`
     margin-bottom: 15px;
   }
 
-  /* Card Hover Effects */
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  }
-
   /* Specific card styles */
   .destinations {
     border-top: 4px solid #1e90ff;
@@ -120,23 +172,6 @@ const StyledWrapper = styled.div`
 
   .deals {
     border-top: 4px solid #ff4500;
-  }
-
-  /* Blur effect on non-hovered sibling cards */
-  .card:hover {
-    z-index: 1; /* Bring hovered card to the front */
-  }
-
-  .cards .card:hover ~ .card,
-  .cards .card:hover ~ .card ~ .card {
-    filter: blur(5px);
-    transform: scale(0.95);
-  }
-
-  /* Remove blur when the card is not hovered */
-  .card:not(:hover) {
-    filter: none;
-    transform: none;
   }
 `;
 

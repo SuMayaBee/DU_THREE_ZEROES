@@ -17,7 +17,10 @@ h1.big-text {
     font-family: 'Kanit', sans-serif;
   }
 }
-
+.swal2-title {
+  font-family: 'Kanit', sans-serif;
+  font-weight: bold;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;

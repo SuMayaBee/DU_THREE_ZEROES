@@ -7,8 +7,8 @@ const AboutUs: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="text-left">
-        <h1 className="text-4xl font-bold text-left mb-6">About Us</h1>
-        <h2 className="text-2xl font-semibold mb-4">Explore All Corners of The World With Us</h2>
+        <h1 className="text-xl text-[#FF5733] font-bold text-left mb-6 ">About Us</h1>
+        <h2 className="text-4xl font-semibold mb-4 font-kanit">Explore All Corners of The World With Us</h2>
           <p className="text-sm mb-2">
             Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
           </p>

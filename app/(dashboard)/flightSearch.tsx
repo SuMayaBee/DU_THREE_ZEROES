@@ -1,5 +1,8 @@
 "use client";
 import React, { useState } from 'react';
+import InputField from './dashboard/InputField'; // Adjust the import path as necessary
+import SelectField from './SelectField';
+import { FaSearch } from 'react-icons/fa';
 
 interface Airline {
   name: string;
@@ -47,26 +50,24 @@ const FlightSearch: React.FC = () => {
     const options = {
       method: 'GET',
       headers: {
-		'x-rapidapi-key': 'a4ce2225d0msh1e57e39b70443b1p1fda5djsn79068af0d356',
-		'x-rapidapi-host': 'booking-com15.p.rapidapi.com'
-	}
+        'x-rapidapi-key': 'a4ce2225d0msh1e57e39b70443b1p1fda5djsn79068af0d356',
+        'x-rapidapi-host': 'booking-com15.p.rapidapi.com'
+      }
     };
 
     try {
       const response = await fetch(url, options);
       const data = await response.json();
-      console.log("Data: ", data); // Log the entire response for inspection
+      console.log("Data: ", data);
 
-      // Extract flight offers
       if (data.data.flightOffers && data.data.flightOffers.length > 0) {
-        setFlightOffers(data.data.flightOffers); // Set flight offers
+        setFlightOffers(data.data.flightOffers);
       } else {
         setError('No flight offers found.');
       }
 
-      // Extract airline information
       if (data.data.aggregation && data.data.aggregation.airlines.length > 0) {
-        setAirlines(data.data.aggregation.airlines); // Set airlines
+        setAirlines(data.data.aggregation.airlines);
       } else {
         setError('No airline information found.');
       }
@@ -89,114 +90,104 @@ const FlightSearch: React.FC = () => {
     <div className="container mx-auto p-6">
       <h1 className="text-2xl font-bold text-center mb-4">Search Flights</h1>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="formId">
-          From (Airport Code):
-        </label>
-        <input
-          type="text"
+      <div className="grid grid-cols-7 gap-3 mb-4">
+        <InputField
+          label="From (Airport Code)"
           id="formId"
+          type="text"
           value={formId}
           onChange={(e) => setFormId(e.target.value)}
           placeholder="E.g., BOM.AIRPORT"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          error={formId ? null : error}
         />
-      </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="toId">
-          To (Airport Code):
-        </label>
-        <input
-          type="text"
+        <InputField
+          label="To (Airport Code)"
           id="toId"
+          type="text"
           value={toId}
           onChange={(e) => setToId(e.target.value)}
           placeholder="E.g., DEL.AIRPORT"
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          error={toId ? null : error}
         />
-      </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="departDate">
-          Departure Date:
-        </label>
-        <input
-          type="date"
+        <InputField
+          label="Departure Date"
           id="departDate"
+          type="date"
           value={departDate}
           onChange={(e) => setDepartDate(e.target.value)}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          error={departDate ? null : error}
         />
-      </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="returnDate">
-          Return Date:
-        </label>
-        <input
-          type="date"
+        <InputField
+          label="Return Date"
           id="returnDate"
+          type="date"
           value={returnDate}
           onChange={(e) => setReturnDate(e.target.value)}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          error={returnDate ? null : error}
         />
-      </div>
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="adults">
-          Number of Adults:
-        </label>
-        <input
-          type="number"
+        <InputField
+          label="Number of Adults"
           id="adults"
+          type="number"
           value={adults}
           onChange={(e) => setAdults(Number(e.target.value))}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          min={1}
+          error={adults > 0 ? null : error}
         />
-      </div>
+      
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="sort">
-          Sort By:
-        </label>
-        <select
+     
+        <SelectField
+          label="Sort By:"
           id="sort"
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        >
-          <option value="BEST">Best</option>
-          <option value="CHEAPEST">Cheapest</option>
-          <option value="FASTEST">Fastest</option>
-        </select>
-      </div>
+          options={[
+            { value: 'BEST', label: 'Best' },
+            { value: 'CHEAPEST', label: 'Cheapest' },
+            { value: 'FASTEST', label: 'Fastest' },
+          ]}
+          error={null} // You can set an error message if needed
+        />
 
-      <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="cabinClass">
-          Cabin Class:
-        </label>
-        <select
+        <SelectField
+          label="Cabin Class:"
           id="cabinClass"
           value={cabinClass}
           onChange={(e) => setCabinClass(e.target.value)}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        >
-          <option value="ECONOMY">Economy</option>
-          <option value="PREMIUM_ECONOMY">Premium Economy</option>
-          <option value="BUSINESS">Business</option>
-          <option value="FIRST">First Class</option>
-        </select>
-      </div>
+          options={[
+            { value: 'ECONOMY', label: 'Economy' },
+            { value: 'PREMIUM_ECONOMY', label: 'Premium Economy' },
+            { value: 'BUSINESS', label: 'Business' },
+            { value: 'FIRST', label: 'First Class' },
+          ]}
+          error={null} // You can set an error message if needed
+        />
+    </div>
+
 
       <div className="flex justify-center">
-        <button
-          onClick={handleSearch}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          disabled={loading}
-        >
-          {loading ? 'Loading...' : 'Search'}
-        </button>
+      <button
+        className="bg-[#FF5733] hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mb-4 flex items-center justify-center shadow-lg transition duration-200"
+        onClick={handleSearch}
+        disabled={loading} // Disable button while loading
+      >
+        {loading ? (
+          <div className="flex items-center">
+            <div className="animate-spin h-5 w-5 border-4 border-t-transparent border-red-500 rounded-full mr-2"></div>
+            Loading...
+          </div>
+        ) : (
+          <>
+            <FaSearch className="mr-2" />
+            Search Flights
+          </>
+        )}
+      </button>
       </div>
 
       {error && (
@@ -205,7 +196,7 @@ const FlightSearch: React.FC = () => {
         </div>
       )}
 
-      {/* Display flight offers
+      {/* Display flight offers */}
       {flightOffers.length > 0 && (
         <div className="mt-10">
           <h2 className="text-2xl font-bold text-center mb-6">Flight Results</h2>
@@ -223,7 +214,7 @@ const FlightSearch: React.FC = () => {
             ))}
           </div>
         </div>
-      )} */}
+      )}
 
       {/* Display airlines */}
       {airlines.length > 0 && (
@@ -242,7 +233,7 @@ const FlightSearch: React.FC = () => {
                 <p className="text-gray-700">
                   Minimum Price: {airline.minPrice.units}.{(airline.minPrice.nanos / 1e9).toFixed(3)} {airline.minPrice.currencyCode}
                 </p>
-                <p className="text-gray-700">Available Seats: {airline.count}</p>
+                <p className="text-gray-700">Flight Count: {airline.count}</p>
               </div>
             ))}
           </div>

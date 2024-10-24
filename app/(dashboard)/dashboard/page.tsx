@@ -21,6 +21,6 @@ export default async function SettingsPage() {
 
   //return <SearchBox />
   // return <Settings teamData={teamData} />;
- // return <OpenCageGeocoding />
- return <FlightSearch />
+  return <OpenCageGeocoding />
+// return <FlightSearch />
 }

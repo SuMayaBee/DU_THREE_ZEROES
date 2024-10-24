@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true,  // Consider changing to false if you want stricter checks
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -18,15 +14,17 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"  // Custom types directory
+    ],
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
   "include": [

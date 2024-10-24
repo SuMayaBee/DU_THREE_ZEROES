@@ -261,9 +261,9 @@ const HotelSearch: React.FC = () => {
         </div>
       )}
       {hotels && (
-        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+        <div className=" mx-auto grid grid-cols-1 md:grid-cols-3 gap-2 p-3">
           {/* Left side: Hotel Cards */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 max-h-[100vh] overflow-scroll">
             {hotels.map((hotel) => (
               <div
                 key={hotel.hotel_name}
@@ -282,26 +282,29 @@ const HotelSearch: React.FC = () => {
                 <div className="flex gap-1 items-center">
                   <FaStar />{" "}
                   <p className="text-gray-600 font-bold">
-                    <span>Score:</span> {hotel.review_score} (
-                    {hotel.review_score_word})
-                  </p>
+                    <span>Score:</span> {hotel.review_score} 
+                  </p> 
                 </div>
+               
+                  <p className="my-1 text-green-800 font-semibold">
+                    <span>Grade:</span> ({hotel.review_score_word})</p>
                 <p className="text-gray-800 mt-1 text-red-500 font-semibold">
                   Price: {hotel.min_total_price} {hotel.currencycode}
                 </p>
+
               </div>
             ))}
           </div>
 
           {/* Right side: Google Map */}
           {shouldMapTrigger && (
-            <div className="flex justify-center items-center absolute right-0">
+            <div className="flex justify-center items-center col-span-2">
               <iframe
                 title="Google Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.509979878247!2d-122.42200358468175!3d37.77492957975968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809b4a9e1687%3A0x6e6e3af0e5f2ab36!2sUnion%20Square%2C%20San%20Francisco%2C%20CA%2094102%2C%20USA!5e0!3m2!1sen!2sin!4v1690529679566!5m2!1sen!2sin"
-                width="600"
-                height="450"
-                className="border-0 rounded-lg shadow-sm"
+                width="100%"
+                height="100%"
+                className="border-0 rounded-lg shadow-sm w-full"
                 allowFullScreen
                 loading="lazy"
               ></iframe>

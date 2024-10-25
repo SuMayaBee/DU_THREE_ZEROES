@@ -112,3 +112,7 @@ h1.big-text {
     transform: rotate(360deg);
   }
 }
+
+section{
+  background: white !important;
+}

@@ -47,7 +47,7 @@ const Banner: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 max-w-xl mx-auto text-center">
         <h1 className="font-kanit text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
-          Be a Traveler <br />
+          <p>Be a Traveler</p> <br />
           Not a Tourist!
         </h1>
         <p className="mb-6 text-lg md:text-xl">

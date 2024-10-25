@@ -123,7 +123,7 @@
 //     </main>
 //   );
 // }
-
+// import ScrollToTop from "react-scroll-to-top";
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CreditCard, Database } from 'lucide-react';
 import { Terminal } from './terminal';
@@ -148,6 +148,7 @@ export default function HomePage() {
       <HowItWorks />
       <FAQ />
       <Footer />
+      {/* <ScrollToTop smooth /> */}
     </main>
   );
 }

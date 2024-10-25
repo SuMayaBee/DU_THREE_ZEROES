@@ -5,6 +5,8 @@ import {
   text,
   timestamp,
   integer,
+  date,
+  boolean,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -112,6 +114,26 @@ export const activityLogsRelations = relations(activityLogs, ({ one }) => ({
   }),
 }));
 
+
+// New schema for travel plans (Task 3 & Task 4)
+export const travelPlans = pgTable('travel_plans', {
+  id: serial('id').primaryKey(),
+  userId: integer('user_id').notNull().references(() => users.id), // Reference to user who created the plan
+  destination: varchar('destination', { length: 255 }).notNull(),
+  date: date('date').notNull(),
+  isCompleted: boolean('is_completed').default(false),
+  weather_event: text('weather_event').default(''), // Allow empty string as default
+  blog: text('blog').default(''), // Allow empty string as default
+});
+
+// Relations for travelPlans
+export const travelPlansRelations = relations(travelPlans, ({ one }) => ({
+  user: one(users, {
+    fields: [travelPlans.userId],
+    references: [users.id],
+  }),
+}));
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type Team = typeof teams.$inferSelect;
@@ -122,6 +144,8 @@ export type ActivityLog = typeof activityLogs.$inferSelect;
 export type NewActivityLog = typeof activityLogs.$inferInsert;
 export type Invitation = typeof invitations.$inferSelect;
 export type NewInvitation = typeof invitations.$inferInsert;
+export type TravelPlan = typeof travelPlans.$inferSelect;
+export type NewTravelPlan = typeof travelPlans.$inferInsert;
 export type TeamDataWithMembers = Team & {
   teamMembers: (TeamMember & {
     user: Pick<User, 'id' | 'name' | 'email'>;
@@ -139,4 +163,6 @@ export enum ActivityType {
   REMOVE_TEAM_MEMBER = 'REMOVE_TEAM_MEMBER',
   INVITE_TEAM_MEMBER = 'INVITE_TEAM_MEMBER',
   ACCEPT_INVITATION = 'ACCEPT_INVITATION',
+  CREATE_TRAVEL_PLAN = 'CREATE_TRAVEL_PLAN', // New activity for creating a travel plan
+  GENERATE_BLOG = 'GENERATE_BLOG', // New activity for generating a blog
 }
